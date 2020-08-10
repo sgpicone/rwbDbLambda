@@ -40,6 +40,10 @@ const findKegByRwbId = (connection, rwbId) => {
     });
 }
 
+const query = (event) => {
+    switch()
+}
+
 
 module.exports = {
     getKegs : getKegs,

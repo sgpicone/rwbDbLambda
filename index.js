@@ -2,10 +2,7 @@ var mysql = require('mysql');
 var beerQueries = require('./beerQueries');
 var kegQueries = require('./kegQueries');
 
-process.env.DB_HOST = '165.227.177.157'
-process.env.DB_PORT = '32947'
-process.env.DB_USER = 'rwbbc_rw'
-process.env.DB_PASS = 'ASdot786ASdot786'
+
 
 var connection = mysql.createConnection({
     host     : process.env.DB_HOST,
@@ -21,6 +18,15 @@ beerQueries.getBeerById(connection, 1);
 kegQueries.getKegs(connection);
 
 exports.handler = (event, context) => {
+    switch(event.path) {
+        case '/kegs':
+            kegQueries.query(event);
+            break;
+        case '/beers':
+            break;
+        default:
+            break;
+    }
     // connection.query("SELECT * FROM rwbbc.beers", function(err, rows, fields) {
     //     console.log("rows: " + JSON.stringify(rows));
     //     context.succeed('Success');
