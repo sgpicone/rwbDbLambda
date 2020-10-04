@@ -41,7 +41,10 @@ const findKegByRwbId = (connection, rwbId) => {
 }
 
 const query = (event) => {
-    switch()
+    switch(event.httpMethod) {
+        case 'GET':
+            if(event.path)
+    }
 }
 
 
